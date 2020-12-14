@@ -12,3 +12,4 @@ __pycache__/
 *.lbl
 *.out
 wandb/
+playground.py
