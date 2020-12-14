@@ -1,14 +1,15 @@
 import time
 from abc import ABC, abstractmethod
 import clr
+
 clr.AddReference('./lib/EngineIO')
 import EngineIO
 
 
 class Controller(ABC):
-    def __init__(self):
+    def __init__(self, cycle_time=8 / 1000):
         # cycle time in milliseconds
-        self.cycle_time = 8 / 1000
+        self.cycle_time = cycle_time
 
         # MemoryBit used to switch Factory I/O between edit and run mode
         self.start = EngineIO.MemoryMap.Instance.GetBit(EngineIO.MemoryMap.BitCount - 16, EngineIO.MemoryType.Output)
@@ -53,12 +54,20 @@ class Controller(ABC):
         EngineIO.MemoryMap.Instance.Update()
         EngineIO.MemoryMap.Instance.Dispose()
 
-    @abstractmethod
-    def execute(self, elapsed_milliseconds):
-        # implement scene execution
-        pass
+    @staticmethod
+    def get_input_bit(address):
+        return EngineIO.MemoryMap.Instance.GetBit(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_bit(address):
+        return EngineIO.MemoryMap.Instance.GetBit(address, EngineIO.MemoryType.Output)
 
     @staticmethod
     def update():
         # update the memory map before executing the controller
         EngineIO.MemoryMap.Instance.Update()
+
+    @abstractmethod
+    def execute(self, elapsed_milliseconds):
+        # implement scene execution
+        pass
