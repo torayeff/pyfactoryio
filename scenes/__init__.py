@@ -1,1 +1,2 @@
-__all__ = ['FromAToB']
+__all__ = ['FromAToB',
+           'FromAToBSetReset']
