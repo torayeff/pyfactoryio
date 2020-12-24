@@ -1,5 +1,6 @@
 import time
 from abc import ABC, abstractmethod
+
 import clr
 
 from lib.StopWatch import StopWatch
