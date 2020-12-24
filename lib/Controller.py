@@ -71,6 +71,78 @@ class Controller(ABC):
         return EngineIO.MemoryMap.Instance.GetBit(address, EngineIO.MemoryType.Output)
 
     @staticmethod
+    def get_input_byte(address):
+        return EngineIO.MemoryMap.Instance.GetByte(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_byte(address):
+        return EngineIO.MemoryMap.Instance.Getyte(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_short(address):
+        return EngineIO.MemoryMap.Instance.GetShort(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_short(address):
+        return EngineIO.MemoryMap.Instance.GetShort(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_int(address):
+        return EngineIO.MemoryMap.Instance.GetInt(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_int(address):
+        return EngineIO.MemoryMap.Instance.GetInt(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_long(address):
+        return EngineIO.MemoryMap.Instance.GetLong(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_long(address):
+        return EngineIO.MemoryMap.Instance.GetLong(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_float(address):
+        return EngineIO.MemoryMap.Instance.GetFloat(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_float(address):
+        return EngineIO.MemoryMap.Instance.GetFloat(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_double(address):
+        return EngineIO.MemoryMap.Instance.GetDouble(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_double(address):
+        return EngineIO.MemoryMap.Instance.GetDouble(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_string(address):
+        return EngineIO.MemoryMap.Instance.GetString(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_string(address):
+        return EngineIO.MemoryMap.Instance.GetString(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_datetime(address):
+        return EngineIO.MemoryMap.Instance.GetDateTime(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_datetime(address):
+        return EngineIO.MemoryMap.Instance.GetDateTime(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
+    def get_input_timespan(address):
+        return EngineIO.MemoryMap.Instance.GetTimeSpan(address, EngineIO.MemoryType.Input)
+
+    @staticmethod
+    def get_output_timespan(address):
+        return EngineIO.MemoryMap.Instance.GetTimeSpan(address, EngineIO.MemoryType.Output)
+
+    @staticmethod
     def update():
         # update the memory map before executing the controller
         EngineIO.MemoryMap.Instance.Update()
