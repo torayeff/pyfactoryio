@@ -2,6 +2,8 @@ import time
 from abc import ABC, abstractmethod
 import clr
 
+from lib.StopWatch import StopWatch
+
 clr.AddReference('./lib/EngineIO')
 import EngineIO
 
@@ -28,20 +30,26 @@ class Controller(ABC):
 
     def run(self):
 
+        stopwatch = StopWatch()
+
         # forcing a rising edge on the start MemoryBit so FACTORY I/O can detect it
         self.switch_to_run()
 
-        start_time = time.time()
+        stopwatch.start()
+
         time.sleep(self.cycle_time)
+
         try:
             print('Press Ctrl-C to terminate.')
             while True:
                 self.update()
 
                 if self.running.Value:
-                    elapsed_milliseconds = time.time() - start_time
-                    self.execute(elapsed_milliseconds)
-                    start_time = time.time()
+                    stopwatch.stop()
+
+                    self.execute(int(stopwatch.elapsed_milliseconds))
+
+                    stopwatch.restart()
 
                 time.sleep(self.cycle_time)
         except KeyboardInterrupt:
