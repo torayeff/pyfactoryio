@@ -1,6 +1,36 @@
 from lib.StopWatch import StopWatch
 
 
+class FTRIG:
+    """Falling edge detection"""
+
+    def __init__(self):
+        self.__clk = False
+        self.__q = False
+
+    def CLK(self, val):
+        self.__q = self.__clk and (not val)
+        self.__clk = val
+
+    def get_q(self):
+        return self.__q
+
+
+class RTRIG:
+    """Rising edge detection"""
+
+    def __init__(self):
+        self.__clk = True
+        self.__q = True
+
+    def CLK(self, val):
+        self.__q = (not self.__clk) and val
+        self.__clk = val
+
+    def get_q(self):
+        return self.__q
+
+
 class TOF:
     """Off delay timer"""
 
