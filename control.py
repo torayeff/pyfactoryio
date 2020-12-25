@@ -8,5 +8,6 @@ if __name__ == '__main__':
     # controller = FromAToB.SceneController()
     # controller = FromAToBSetReset.SceneController()
     # controller = FillingTank.SceneController()
-    controller = QueueOfItems.SceneController()
+    # controller = QueueOfItems.SceneController()
+    controller = QueueOfItems_stable.SceneController()
     controller.run()
