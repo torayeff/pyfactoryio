@@ -35,16 +35,6 @@ class SceneController(Controller):
         self.buffer_conveyor.Value = False
 
     def execute(self, elapsed_milliseconds):
-        print(f'entry_conveyor={self.entry_conveyor.Value} '
-              f'buffer_conveyor={self.buffer_conveyor.Value} '
-              f'item_ready={self.item_ready.Value} '
-              f'at_entry={self.at_entry.Value} '
-              f'rt_at_entry={self.rt_at_entry.get_q()} '
-              f'ft_at_entry={self.ft_at_entry.get_q()} '
-              f'at_exit={self.at_exit.Value} '
-              f'ft_at_exit={self.ft_at_exit.get_q()} '
-              f'counter={self.counter} ')
-
         self.rt_at_entry.CLK(not self.at_entry.Value)
         self.ft_at_entry.CLK(not self.at_entry.Value)
         self.ft_at_exit.CLK(not self.at_exit.Value)
