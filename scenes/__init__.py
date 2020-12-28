@@ -2,5 +2,6 @@ __all__ = ['FromAToB',
            'FromAToBSetReset',
            'FillingTank',
            'QueueOfItems',
-           'QueueOfItems_stable'
+           'QueueOfItems_stable',
+           'Assembler'
            ]
